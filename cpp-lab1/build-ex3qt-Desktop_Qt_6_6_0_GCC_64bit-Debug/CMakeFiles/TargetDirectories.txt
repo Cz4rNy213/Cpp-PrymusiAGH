@@ -1,0 +1,3 @@
+/home/mikolaj/work/C++PrymusiAGH/cpp-lab1/build-ex3qt-Desktop_Qt_6_6_0_GCC_64bit-Debug/CMakeFiles/ex3qt.dir
+/home/mikolaj/work/C++PrymusiAGH/cpp-lab1/build-ex3qt-Desktop_Qt_6_6_0_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
+/home/mikolaj/work/C++PrymusiAGH/cpp-lab1/build-ex3qt-Desktop_Qt_6_6_0_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir
