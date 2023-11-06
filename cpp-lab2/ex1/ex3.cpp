@@ -22,4 +22,8 @@ int main()
   cout << "sizeof(x5) = " << sizeof(x5) << endl;
   cout << "sizeof(x6) = " << sizeof(x6) << endl;
   cout << "sizeof(x7) = " << sizeof(x7) << endl;
+
+    const int i = 3;
+    auto j = i; // is j a constant value or not? it is not
+    j = 5;
 }
