@@ -68,51 +68,51 @@ int main()
        << duration_cast<duration<double>>(end4 - start4).count()
        << "seconds.\n";
 
-  // cout << "factR(20) = " << factR(20) << endl;
-  // cout << "sum5(10) = " << sum5(a1, a1Size) << endl;
+  cout << "factR(20) = " << factR(20) << endl;
+  cout << "sum5(10) = " << sum5(a1, a1Size) << endl;
 
-  // high_resolution_clock::time_point start, end;
+  high_resolution_clock::time_point start, end;
 
-  // int n4Fib = 45;
-  // start = high_resolution_clock::now();
-  // fibR(n4Fib);
-  // end = high_resolution_clock::now();
+  int n4Fib = 45;
+  start = high_resolution_clock::now();
+  fibR(n4Fib);
+  end = high_resolution_clock::now();
 
-  // cout << "fibR =" << fibR(n4Fib) << " took "
-  //      << duration_cast<duration<double>>(end - start).count()
-  //      << "seconds.\n";
+  cout << "fibR =" << fibR(n4Fib) << " took "
+       << duration_cast<duration<double>>(end - start).count()
+       << "seconds.\n";
 
-  // high_resolution_clock::time_point start1, end1;
-  // start1 = high_resolution_clock::now();
-  // mFibR(n4Fib);
-  // end1 = high_resolution_clock::now();
+  high_resolution_clock::time_point start1, end1;
+  start1 = high_resolution_clock::now();
+  mFibR(n4Fib);
+  end1 = high_resolution_clock::now();
 
-  // cout << "mFibR = " << mFibR(n4Fib) << " took "
-  //      << duration_cast<duration<double>>(end1 - start1).count()
-  //      << "seconds.\n";
+  cout << "mFibR = " << mFibR(n4Fib) << " took "
+       << duration_cast<duration<double>>(end1 - start1).count()
+       << "seconds.\n";
   
 
 
 
 
-  // high_resolution_clock::time_point start2, end2;
-  // high_resolution_clock::time_point start3, end3;
+  high_resolution_clock::time_point start2, end2;
+  high_resolution_clock::time_point start3, end3;
 
-  // int fact_r = 16;
-  // start2 = high_resolution_clock::now();
-  // factR(fact_r);
-  // end2 = high_resolution_clock::now();
-  // start3 = high_resolution_clock::now();
-  // mFactR(fact_r);
-  // end3 = high_resolution_clock::now();
+  int fact_r = 16;
+  start2 = high_resolution_clock::now();
+  factR(fact_r);
+  end2 = high_resolution_clock::now();
+  start3 = high_resolution_clock::now();
+  mFactR(fact_r);
+  end3 = high_resolution_clock::now();
 
-  // cout << "factR = " << factR(fact_r) << " took "
-  //      << duration_cast<duration<double>>(end2 - start2).count()
-  //      << "seconds.\n";
+  cout << "factR = " << factR(fact_r) << " took "
+       << duration_cast<duration<double>>(end2 - start2).count()
+       << "seconds.\n";
 
-  // cout << "mFactR = " << mFactR(fact_r) << " took "
-  //      << duration_cast<duration<double>>(end3 - start3).count()
-  //      << "seconds.\n";
+  cout << "mFactR = " << mFactR(fact_r) << " took "
+       << duration_cast<duration<double>>(end3 - start3).count()
+       << "seconds.\n";
 
 
   
