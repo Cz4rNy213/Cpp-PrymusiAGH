@@ -141,6 +141,7 @@ float sumOddsOfV(const vector<float> &elems){
     for (int i = 1; i < elems.size(); i+=2){
         sum += elems[i];
     }
+    return sum;
 }
 
 int main()
