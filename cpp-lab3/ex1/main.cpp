@@ -20,9 +20,11 @@ void pointersDemo1()
   printf("About to execute **pp1 = 3...\n");
   **pp1 = 3;
   printf("x = %d\n", x);
-
+  x = 5;
   const int y = 2;
   const int *p2 = &y;
+  p2 = &x;
+  x = 7;
   printf("*p2 = %d\n", *p2);
 
   const int * const p3 = &x; // a pointer to a const can be used for a non-const
