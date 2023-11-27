@@ -28,14 +28,14 @@ public:
   int denominator() const { return denom; }
 
   static Rational normalize(const Rational& other){
-    int gcd_val = std::__gcd(std::abs(other.numer), other.denom);
-    int sign = (other.numer < 0) ? -1 : 1;
-    return Rational(sign * other.numer / gcd_val, other.denom / gcd_val);
+    int gcd_val = std::__gcd(std::abs(other.numer), std::abs(other.denom));
+    int sign = (other.numer * other.denom < 0) ? -1 : 1;
+    return Rational(sign * std::abs(other.numer) / gcd_val, std::abs(other.denom) / gcd_val);
   }
   static Rational normalized(int numerator, int denominator){
-    int gcd_val = std::__gcd(std::abs(numerator), denominator);
-    int sign = (numerator < 0) ? -1 : 1;
-    return Rational(sign * numerator / gcd_val, denominator / gcd_val);
+    int gcd_val = std::__gcd(std::abs(numerator), std::abs(denominator));
+    int sign = (numerator * denominator < 0) ? -1 : 1;
+    return Rational(sign * std::abs(numerator) / gcd_val, std::abs(denominator) / gcd_val);
   }
 
   Rational operator+(const Rational& other) const{
@@ -52,19 +52,17 @@ public:
     return Rational::normalize(ret);
   }
 
-  Rational operator*(const Rational& other) const{
-  Rational* times = new Rational(0);
-  times->numer = this->numer * other.numer;
-  times->denom = this->denom * other.denom;
-  return *times;
-  }
-  
-  Rational operator/(const Rational& other) const{
-  Rational* divide = new Rational(0);
-  divide->numer = this->numer * other.denom;
-  divide->denom = this->denom * other.numer;
-  return *divide;    
-  }
+Rational operator*(const Rational& other) const {
+    int num = this->numer * other.numer;
+    int den = this->denom * other.denom;
+    return Rational::normalize(Rational(num, den));
+}
+
+Rational operator/(const Rational& other) const {
+    int num = this->numer * other.denom;
+    int den = this->denom * other.numer;
+    return Rational::normalize(Rational(num, den));
+}
 
   Rational operator+() const{
     return *this;
@@ -120,58 +118,42 @@ private:
 };
 
 Rational operator+(const Rational& r, int i){
-    Rational* op = new Rational(0);
-    op->numer = r.numer + i * r.denom;
-    op->denom = r.denom;
-    return *op;
+    int new_numer = r.numer + i * r.denom;
+    return Rational::normalize(Rational(new_numer, r.denom));
 }
 Rational operator+(int i, const Rational& r){
-    Rational* op = new Rational(0);
-    op->numer = r.numer + i * r.denom;
-    op->denom = r.denom;
-    return *op;
+    int new_numer = r.numer + i * r.denom;
+    return Rational::normalize(Rational(new_numer, r.denom));
 }
 
 Rational operator-(const Rational& r, int i){
-    Rational* op = new Rational(0);
-    op->numer = r.numer - i * r.denom;
-    op->denom = r.denom;
-    return *op;
+    int new_numer = r.numer - i * r.denom;
+    return Rational::normalize(Rational(new_numer, r.denom));
 }
 
 Rational operator-(int i, const Rational& r){
-    Rational* op = new Rational(0);
-    op->numer = r.numer - i * r.denom;
-    op->denom = r.denom;
-    return *op;
+    int new_numer = r.numer - i * r.denom;
+    return Rational::normalize(Rational(new_numer, r.denom));
 }
 
 Rational operator*(const Rational& r, int i){
-    Rational* op = new Rational(0);
-    op->numer = r.numer * i;
-    op->denom = r.denom;
-    return *op;
+    int new_numer = r.numer * i;
+    return Rational::normalize(Rational(new_numer, r.denom));
 }
 
 Rational operator*(int i, const Rational& r){
-    Rational* op = new Rational(0);
-    op->numer = r.numer * i;
-    op->denom = r.denom;
-    return *op;
+    int new_numer = r.numer * i;
+    return Rational::normalize(Rational(new_numer, r.denom));
 }
 
 Rational operator/(const Rational& r, int i){
-    Rational* op = new Rational(0);
-    op->numer = r.numer;
-    op->denom = r.denom * i;
-    return *op;
+    int new_denom = r.denom * i;
+    return Rational::normalize(Rational(r.numer, new_denom));
 }
 
 Rational operator/(int i, const Rational& r){
-    Rational* op = new Rational(0);
-    op->numer = r.numer;
-    op->denom = r.denom * i;
-    return *op;
+    int new_denom = r.denom * i;
+    return Rational::normalize(Rational(r.numer, new_denom));
 }
 
 std::ostream& operator<<(std::ostream & os, const Rational & rat){
