@@ -1,0 +1,7 @@
+#!/bin/bash
+cd ~/lab5
+for file_jp in *; do
+    if [[ $(file -b "file_jp") =~ JPEG]]; then
+        rm "file_jp"
+done 
+echo "Usuwanie plików jpeg zakończone"

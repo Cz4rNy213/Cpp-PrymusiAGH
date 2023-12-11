@@ -10,7 +10,7 @@ using std::istream;
 class Vector2D
 {
 public:
-  Vector2D(double x = 0, double y = 0) : x_{x}, y_{y} {}
+  explicit Vector2D(double x = 0, double y = 0) : x_{x}, y_{y} {}
   Vector2D(const Vector2D &other) : x_{other.x_}, y_{other.y_} {}
   ~Vector2D() { cout << "destructor of " << *this << endl; }
 
