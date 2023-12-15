@@ -98,7 +98,7 @@ bool Preprocessor::handleDefine(const std::string& def_name, std::string& value_
         throw std::runtime_error("Incorrect #definiuj name: " + def_name);
         return false;
     }
-    value = convertStringToInt(value_{...}string);
+    value = convertStringToInt(value_string);
     return true;
 }
 
