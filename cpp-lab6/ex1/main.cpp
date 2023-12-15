@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-#include "vec2d.h"
+// #include "vec2d.h"
 
 using namespace std;
 
@@ -67,7 +67,7 @@ string fileToString(const char* fileName)
     cout << "Cannot open file " << fileName << endl;
   }
 
-  std::stringstream buffer;
+  std::ostringstream buffer;
   buffer << in.rdbuf();
   in.close();
 
