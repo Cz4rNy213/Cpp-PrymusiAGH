@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -209,6 +210,34 @@ void genericFunctionsDemo4()
   cout << "genSumOf(" << p1 << "," << p2 << ") = " << genSumOf(p1, p2) << endl;
 }
 
+int intId(int x) { return x; }
+
+double doubleId (double x) { return x; }
+
+PairOfDoubleAndChar pairOfDoubleAndCharId(PairOfDoubleAndChar x) { return x; }
+
+template <typename T>
+T id (T x) { return x; }
+
+template <typename T>
+T maxOf(T a, T b){
+  return (a > b)? a : b;
+}
+
+bool operator>(const PairOfDoubleAndChar& a,const  PairOfDoubleAndChar& b){
+  return a.d > b.d;
+}
+
+template <typename T, size_t N>
+void genericSwap(T (&t1)[N], T (&t2)[N], size_t size){
+  T temp[N];
+  for (int i = 0 ; i < size; i++){
+    temp[i] = t1[i];
+    t1[i] = t2[i];
+    t2[i] = temp[i];
+  }
+}
+
 int main()
 {
   repeatYourselfDemo();
@@ -221,6 +250,32 @@ int main()
   cout << endl;
   genericFunctionsDemo4();
 
+    int intResult = maxOf(5, 10);
+    std::cout << "Max int: " << intResult << std::endl;
+
+    // Test for double
+    double doubleResult = maxOf(3.14, 2.71);
+    std::cout << "Max double: " << doubleResult << std::endl;
+
+    // Test for PairOfDoubleAndChar
+    PairOfDoubleAndChar pair1;
+    PairOfDoubleAndChar pair2;
+    pair1 = {3.3, 'c'};
+    pair2 = {6.8, 'f'};
+    PairOfDoubleAndChar pairResult = maxOf(pair1, pair2);
+    std::cout << "Max PairOfDoubleAndChar: " << pairResult.d << ", " << pairResult.c << std::endl;
+
+    int arr1[] = {2,4,7,1,3};
+    int arr2[] = {2,2,2,2,2};
+    genericSwap(arr1, arr2, 5);
+    for (int i = 0; i < 5; i++){
+      cout << arr1[i]<<"  ";
+    }
+    cout<<endl;
+    for (int j = 0; j < 5; j++){
+      cout << arr2[j]<<"  ";
+    }
+    cout<<endl;
   return 0;
 }
 
@@ -244,3 +299,4 @@ void genericSwap(char* a, char* b)
   cout << "user-defined genericSwap(): ";
   char c = *a; *a = *b; *b = c;
 }
+
